@@ -1,0 +1,1095 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Ajuste para el scroll al hacer clic en enlaces */
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+body {
+    color: #333; /* Color base para texto en secciones claras */
+    line-height: 1.6;
+    padding-top: 80px; /* Espacio para el navbar fijo */
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Sistema de secciones alternadas */
+.dark-section {
+    background-color: #000;
+    color: #fff;
+    padding: 5rem 2rem;
+}
+
+.light-section {
+    background-color: #fff;
+    color: #000;
+    padding: 5rem 2rem;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ESTILOS DEL NAVBAR (COMPLETO - VERSIÓN ORIGINAL) */
+.navbar {
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(255, 235, 0, 0.1);
+    border-bottom: 1px solid #333;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #f5f5f5;
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo:hover {
+    color: #ffeb3b;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+    color: #ffeb3b;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffeb3b;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Estilos del menú hamburguesa */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover span {
+    background-color: #ffeb3b;
+}
+
+/* Estilos responsive del navbar */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #000;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3rem;
+        transition: left 0.5s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    .nav-links a {
+        font-size: 1.3rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Animación del menú hamburguesa */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* Estilos Sección Hero */
+.hero {
+    padding: 0; /* Ahora el padding lo controla dark-section */
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    min-height: 80vh;
+}
+
+.hero-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.03);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-subtitle {
+    color: #f5f5f5;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.hero-title {
+    color: #ffffff;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Estilos para sección de reseñas */
+.testimonials {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0;
+    scroll-margin-top: 80px; /* Añade esto - igual a la altura del navbar */
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: inherit;
+}
+
+.testimonials-container {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 2rem 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.testimonial-card {
+    min-width: 300px;
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    scroll-snap-align: start;
+    text-align: left;
+}
+
+.light-section .testimonial-card {
+    background: #f0f0f0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #222;
+}
+
+.testimonial-rating {
+    color: #FFD700;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Botones */
+.cta-button {
+    display: inline-block;
+    background-color: #FFD700;
+    color: #000;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #FFD700;
+}
+
+.light-section .cta-button {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+}
+
+.light-section .cta-button:hover {
+    color: #000;
+    border-color: #000;
+}
+
+.arrow {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .testimonials h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .dark-section,
+    .light-section {
+        padding: 3rem 1rem;
+    }
+    
+    .testimonials-container {
+        padding: 1rem 0;
+    }
+    
+    .testimonial-card {
+        min-width: 250px;
+    }
+}
+
+/* Estilos para sección de reseñas tipo marquesina */
+.testimonials {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: inherit;
+}
+
+.testimonials-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+    padding: 1rem 0;
+}
+
+.testimonial-card {
+    width: 280px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.light-section .testimonial-card {
+    background: #f0f0f0;
+}
+
+.testimonial-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #FFD700;
+    margin: 0 auto 0.8rem;
+    display: block;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.testimonial-date {
+    color: #777;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 0.8rem;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.testimonial-rating {
+    color: #FFD700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* Animación de la marquesina */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-280px * 5 - 1.5rem * 5)); /* Ancho de tarjeta * cantidad + gap * cantidad */
+    }
+}
+
+/* Pausar animación al hacer hover */
+.testimonials-track:hover {
+    animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .testimonials-track {
+        gap: 1rem;
+        animation: scroll 20s linear infinite;
+    }
+    
+    .testimonial-card {
+        width: 240px;
+        padding: 1.2rem;
+    }
+    
+    .testimonial-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-240px * 5 - 1rem * 5));
+        }
+    }
+}
+
+/* Estilos para los textos debajo de la marquesina */
+.testimonials-footer {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+.testimonials-footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: inherit;
+    position: relative;
+    display: inline-block;
+}
+
+.light-section .testimonials-footer h3 {
+    color: #333;
+}
+
+.dark-section .testimonials-footer h3 {
+    color: #fff;
+}
+
+.testimonials-footer h3::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 2px;
+    background: #FFD700;
+    bottom: -8px;
+    left: 30%;
+}
+
+.testimonials-footer h4 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.light-section .testimonials-footer h4 {
+    color: #555;
+}
+
+.dark-section .testimonials-footer h4 {
+    color: #ddd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .testimonials-footer {
+        margin-top: 2rem;
+    }
+    
+    .testimonials-footer h3 {
+        font-size: 1.3rem;
+    }
+    
+    .testimonials-footer h4 {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Estilos para la sección de clases */
+.classes {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #000;
+}
+
+.classes h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.classes h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background: #FFD700;
+    bottom: -10px;
+    left: 25%;
+}
+
+.classes h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+    color: #aaa;
+}
+
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.class-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 300px;
+}
+
+.class-card:hover {
+    transform: scale(1.03);
+}
+
+.class-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.class-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFD700;
+    color: #000;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.class-card:hover .class-label {
+    background: #000;
+    color: #FFD700;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .classes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .classes {
+        padding: 3rem 1rem;
+    }
+    
+    .classes h2 {
+        font-size: 1.8rem;
+    }
+    
+    .classes h3 {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+    }
+    
+    .classes-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+    
+    .class-card {
+        height: 250px;
+    }
+}
+
+/* Estilos para la sección final con botón */
+.classes-action {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.classes-btn {
+    display: inline-block;
+    background-color: #FFD700;
+    color: #000;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 2px solid #FFD700;
+    margin-bottom: 2rem;
+}
+
+.classes-btn:hover {
+    background-color: transparent;
+    color: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Sección de suscripción */
+.subscription-section {
+    background-color: #fff;
+    color: #000;
+    padding: 4rem 0; /* Eliminamos el padding lateral */
+    margin-top: 3rem;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.subscription-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; /* Añadimos padding interno al contenido */
+    text-align: center;
+}
+
+.subscription-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #000;
+    position: relative;
+    padding-bottom: 15px; /* Espacio para la línea */
+}
+
+.subscription-content h2::after {
+    content: '';
+    position: absolute;
+    width: 50%; /* Ancho de la línea */
+    height: 3px;
+    background: #FFD700; /* Color amarillo */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centrar perfectamente */
+    border-radius: 3px;
+}
+
+.subscription-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .classes-action {
+        margin-top: 2rem;
+    }
+    
+    .subscription-section {
+        padding: 3rem 1rem;
+    }
+    
+    .subscription-content h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Sección de Planes - Versión modificada */
+.plans-section {
+    background-color: #000;
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.plans-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #ffffff; /* Cambiado a blanco */
+    position: relative;
+    display: inline-block;
+}
+
+.plans-section h1::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background: #FFD700;
+    bottom: -10px;
+    left: 25%;
+}
+
+.plans-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0; /* Eliminamos el gap para que estén pegados */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    border: 2px solid #FFD700; /* Borde amarillo alrededor del conjunto */
+    border-radius: 10px;
+    overflow: hidden; /* Para que el borde redondeado funcione */
+}
+
+.plan-card {
+    background: #1a1a1a;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Para que todos tengan la misma altura */
+    border-right: 1px solid #333; /* Separador entre tarjetas */
+}
+
+/* Eliminar borde derecho de la última tarjeta */
+.plan-card:last-child {
+    border-right: none;
+}
+
+.plan-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+}
+
+.plan-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.plan-period {
+    font-size: 1rem;
+    color: #aaa;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+.plan-features {
+    text-align: left;
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    flex-grow: 1; /* Para que los botones queden alineados */
+}
+
+.plan-features li {
+    list-style: none;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.plan-features li::before {
+    content: '✓';
+    color: #FFD700;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.plan-btn-container {
+    margin-top: auto; /* Empuja el botón hacia abajo */
+    padding-top: 1.5rem;
+}
+
+.plan-btn {
+    display: inline-block;
+    background-color: #FFD700;
+    color: #000;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #FFD700;
+    width: 80%;
+    max-width: 200px;
+}
+
+.plan-btn:hover {
+    background-color: transparent;
+    color: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .plans-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .plan-card {
+        border-right: none;
+        border-bottom: 1px solid #333;
+    }
+    
+    .plan-card:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .plans-section {
+        padding: 3rem 1rem;
+    }
+    
+    .plans-section h1 {
+        font-size: 2rem;
+    }
+    
+    .plan-btn {
+        width: 60%;
+    }
+}
+
+/* Sección de Contacto - Versión Final */
+.contact-section {
+    background-color: #fff;
+    color: #000;
+    padding: 4rem 2rem;
+}
+
+.contact-container {
+    display: flex;
+    align-items: stretch;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%; /* Añade esto */
+    padding: 0 1rem; /* Añade esto para márgenes internos */
+}
+
+.contact-section h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #000;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.contact-image {
+    width: 45%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.contact-form {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.form-group.full-width {
+    flex: 0 0 100%;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #f5f5f5;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #FFD700;
+    background-color: #fff;
+}
+
+.contact-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Pegar al fondo */
+    padding-top: 1rem;
+}
+
+.contact-btn {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #FFD700;
+    width: auto;
+}
+
+.contact-btn:hover {
+    background-color: #000;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .contact-image,
+    .contact-form {
+        width: 100%;
+    }
+    
+    .contact-image {
+        height: 300px; /* Altura fija en móvil */
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .contact-section h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Footer */
+.site-footer {
+    background-color: #000;
+    color: #aaa;
+    padding: 2rem 0;
+    border-top: 1px solid #333;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.copyright {
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-link {
+    color: #aaa;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #FFD700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .social-links {
+        gap: 2rem;
+    }
+}
