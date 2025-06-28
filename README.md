@@ -27,7 +27,7 @@ El sitio está compuesto por una página principal con distintas secciones (Inic
 
 - HTML5  
 - CSS3  
-- JavaScript (básico)  
+- JavaScript 
 
 ## 📁 Estructura del Proyecto
 
