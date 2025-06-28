@@ -59,7 +59,7 @@ body {
 }
 
 .logo {
-    color: #f5f5f5;
+    color: #ffeb3b;
     font-weight: bold;
     font-size: 1.8rem;
     text-decoration: none;
@@ -371,117 +371,103 @@ body {
 
 /* Estilos para sección de reseñas tipo marquesina */
 .testimonials {
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    padding: 3rem 0;
+  padding: 3rem 1rem;
+  text-align: center;
+  overflow: hidden;
 }
 
 .testimonials h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: inherit;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testimonials-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
 
 .testimonials-track {
-    display: flex;
-    gap: 1.5rem;
-    width: max-content;
-    animation: scroll 30s linear infinite;
-    padding: 1rem 0;
+  display: flex;
+  gap: 1.5rem;
+  width: fit-content;
+  animation: scroll linear infinite;
+  padding-bottom: 1rem;
 }
 
 .testimonial-card {
-    width: 280px;
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    flex-shrink: 0;
-}
-
-.light-section .testimonial-card {
-    background: #f0f0f0;
+  flex-shrink: 0;
+  width: 280px;
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
 .testimonial-image {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #FFD700;
-    margin: 0 auto 0.8rem;
-    display: block;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FFD700;
+  margin: 0 auto 0.8rem;
+  display: block;
 }
 
 .testimonial-author {
-    font-weight: bold;
-    color: #222;
-    margin-bottom: 0.3rem;
-    font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.3rem;
+  display: block;
 }
 
 .testimonial-date {
-    color: #777;
-    font-size: 0.8rem;
-    margin-bottom: 0.8rem;
-    display: block;
+  color: #777;
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+  display: block;
 }
 
 .testimonial-text {
-    font-style: italic;
-    margin-bottom: 0.8rem;
-    color: #555;
-    font-size: 0.9rem;
-    line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .testimonial-rating {
-    color: #FFD700;
-    font-size: 1rem;
-    letter-spacing: 2px;
+  color: #FFD700;
+  font-size: 1rem;
+  letter-spacing: 2px;
 }
 
-/* Animación de la marquesina */
 @keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-280px * 5 - 1.5rem * 5)); /* Ancho de tarjeta * cantidad + gap * cantidad */
-    }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-/* Pausar animación al hacer hover */
+/* Pausar al hacer hover */
 .testimonials-track:hover {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .testimonials-track {
-        gap: 1rem;
-        animation: scroll 20s linear infinite;
-    }
-    
-    .testimonial-card {
-        width: 240px;
-        padding: 1.2rem;
-    }
-    
-    .testimonial-image {
-        width: 60px;
-        height: 60px;
-    }
-    
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(calc(-240px * 5 - 1rem * 5));
-        }
-    }
+  .testimonial-card {
+    width: 240px;
+    padding: 1.2rem;
+  }
+
+  .testimonial-image {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 /* Estilos para los textos debajo de la marquesina */

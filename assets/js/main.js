@@ -38,84 +38,23 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Carrusel de testimonios
-document.addEventListener('DOMContentLoaded', function () {
-    // Configuración del carrusel
-    const carousel = document.getElementById('testimonials-carousel');
-    const cards = document.querySelectorAll('.testimonial-card');
-    const dotsContainer = document.getElementById('testimonial-dots');
-    let currentIndex = 0;
-    const intervalTime = 5000; // Cambia cada 5 segundos
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.testimonials-track');
 
-    // Crear puntos de navegación
-    cards.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('testimonial-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => {
-            goToTestimonial(index);
-        });
-        dotsContainer.appendChild(dot);
-    });
+  // Clona las tarjetas una vez
+  track.innerHTML += track.innerHTML;
 
-    const dots = document.querySelectorAll('.testimonial-dot');
+  // Ajusta la duración de la animación en función del ancho
+  function updateAnimationDuration() {
+    const trackWidth = track.scrollWidth;
+    const speed = 200; // px por segundo
+    const duration = trackWidth / speed;
 
-    // Función para mover el carrusel
-    function goToTestimonial(index) {
-        cards.forEach(card => card.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
+    track.style.animationDuration = `${duration}s`;
+  }
 
-        currentIndex = index;
-        cards[currentIndex].classList.add('active');
-        dots[currentIndex].classList.add('active');
-
-        // Mover el carrusel
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    // Auto-avance
-    let carouselInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        goToTestimonial(currentIndex);
-    }, intervalTime);
-
-    // Pausar al hacer hover
-    carousel.addEventListener('mouseenter', () => {
-        clearInterval(carouselInterval);
-    });
-
-    // Reanudar al salir del hover
-    carousel.addEventListener('mouseleave', () => {
-        carouselInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % cards.length;
-            goToTestimonial(currentIndex);
-        }, intervalTime);
-    });
-});
-
-// Optimización para marquesina infinita
-document.addEventListener('DOMContentLoaded', function() {
-    const track = document.querySelector('.testimonials-track');
-    const cards = document.querySelectorAll('.testimonial-card');
-    const cardWidth = cards[0].offsetWidth + 24; // Ancho + gap
-    
-    // Clonamos las tarjetas para efecto infinito
-    track.innerHTML += track.innerHTML;
-    
-    // Ajustamos la velocidad según el ancho
-    function updateAnimation() {
-        const duration = cards.length * 1.2;
-        track.style.animationDuration = `${duration}s`;
-    }
-    
-    updateAnimation();
-    window.addEventListener('resize', updateAnimation);
-    
-    // Reinicio suave cuando llega al final
-    track.addEventListener('animationiteration', () => {
-        track.style.animation = 'none';
-        void track.offsetWidth; // Trigger reflow
-        track.style.animation = `scroll ${cards.length * 1.5}s linear infinite`;
-    });
+  updateAnimationDuration();
+  window.addEventListener('resize', updateAnimationDuration);
 });
 
 // Función para el botón de volver atrás
@@ -153,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isValid) {
                 alert('¡Inscripción enviada con éxito!');
                 form.reset();
-                // Aquí podrías añadir envío AJAX o redirección
             } else {
                 alert('Por favor completa todos los campos requeridos');
             }
