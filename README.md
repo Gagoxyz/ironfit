@@ -2,7 +2,7 @@
 
 **IronFit** es una landing page desarrollada como ejercicio de diseño web para un gimnasio ficticio. El objetivo principal es ofrecer una experiencia visual atractiva y funcional que represente los servicios, clases y planes disponibles en un gimnasio moderno.
 
-El sitio está compuesto por una página principal con distintas secciones (Inicio, Reseñas, Clases, Planes, Contacto), y algunas páginas HTML adicionales para ampliar la información (por ejemplo, Clases y Quiénes Somos).
+El sitio está compuesto por una página principal con distintas secciones (Inicio, Reseñas, Clases, Planes, Contacto), y algunas páginas HTML adicionales para ampliar la información (por ejemplo, Inscripción, Clases y Quiénes Somos).
 
 ## 🌐 Características
 
