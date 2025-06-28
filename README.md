@@ -11,6 +11,7 @@ El sitio está compuesto por una página principal con distintas secciones (Inic
 - Información clara y bien estructurada
 - Enlaces funcionales a contenidos detallados
 - Formulario de contacto integrado
+- Formulario de inscripción
 
 ## 📸 Vistas Previas
 
@@ -37,9 +38,11 @@ El proyecto está organizado en carpetas para separar estilos, scripts, imágene
 IronFit/
 ├── index.html
 ├── quienes-somos.html
-├── clases/
+├── clases.html
+├── inscripcion.html
 ├── assets/
 │   ├── css/
+│   ├── favicon/
 │   ├── js/
 │   └── images/
 ```
