@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción - IronFit</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navbar minimalista -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="javascript:history.back()" class="back-arrow">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="logo">IRONFIT</div>
+            <div class="nav-links"></div> <!-- Vacío intencional -->
+        </div>
+    </nav>
+
+    <!-- Formulario de inscripción -->
+    <main class="inscription-section">
+        <div class="section-container">
+            <h1>PLANILLA DE INSCRIPCIÓN IRONFIT</h1>
+
+            <form class="inscription-form">
+                <!-- Datos personales -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido1">Primer apellido</label>
+                        <input type="text" id="apellido1" name="apellido1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido2">Segundo apellido</label>
+                        <input type="text" id="apellido2" name="apellido2">
+                    </div>
+                </div>
+
+                <!-- Dirección -->
+                <div class="form-group">
+                    <label for="direccion">Dirección completa</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+
+                <!-- Contacto -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <!-- Plan seleccionado -->
+                <div class="form-group">
+                    <label for="plan">Selecciona tu plan</label>
+                    <select id="plan" name="plan" required>
+                        <option value="" disabled selected>-- Elige un plan --</option>
+                        <option value="inicial">Plan Inicial (40€/mes)</option>
+                        <option value="intermedio">Plan Intermedio (105€/trimestre)</option>
+                        <option value="avanzado">Plan Avanzado (360€/año)</option>
+                    </select>
+                </div>
+
+                <!-- Nivel -->
+                <div class="form-group">
+                    <label>Indica tu nivel</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="nivel" value="inicial" required>
+                            <span class="radio-custom"></span>
+                            Inicial
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="nivel" value="intermedio">
+                            <span class="radio-custom"></span>
+                            Intermedio
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="nivel" value="avanzado">
+                            <span class="radio-custom"></span>
+                            Avanzado
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Botón de envío -->
+                <button type="submit" class="submit-btn">ENVIAR INSCRIPCIÓN</button>
+            </form>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="copyright">
+                &copy; IronFit. Todos los derechos reservados.
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

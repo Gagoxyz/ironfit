@@ -117,3 +117,46 @@ document.addEventListener('DOMContentLoaded', function() {
         track.style.animation = `scroll ${cards.length * 1.5}s linear infinite`;
     });
 });
+
+// Función para el botón de volver atrás
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar todos los botones de retroceso
+    const backButtons = document.querySelectorAll('.back-arrow, [data-back]');
+    
+    // Añadir evento click
+    backButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.history.back();
+        });
+    });
+    
+    // Validación básica del formulario
+    const form = document.querySelector('.inscription-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validación simple
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = 'red';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (isValid) {
+                alert('¡Inscripción enviada con éxito!');
+                form.reset();
+                // Aquí podrías añadir envío AJAX o redirección
+            } else {
+                alert('Por favor completa todos los campos requeridos');
+            }
+        });
+    }
+});
